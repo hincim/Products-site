@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { CategoryService } from '../services/category.service';
-import { Category } from '../models/category';
+import { CategoryService } from '../../categories/category.service';
 import { NgForm } from '@angular/forms';
+import { Category } from 'src/app/categories/category.model';
 
 @Component({
   selector: 'app-product-create',

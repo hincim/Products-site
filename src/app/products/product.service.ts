@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Product } from "../models/product";
+import { Product } from "./product.model";
 import { Observable, map, tap, delay, take, exhaustMap } from "rxjs";
-import { AuthService } from "./auth.service";
-import { ServicesUtil } from "./services.util";
+import { AuthService } from "../authentication/auth.service";
+import { ServicesUtil } from "../util/services.util";
 
 
 //local service
@@ -18,7 +18,7 @@ export class ProductService{
     }
 
     getProducts(categoryId: number): Observable<Product[]>{
-        return this.http.get<Product[]>(this.servicesUtil.productServicesUrl+"products.json").pipe(
+        return this.http.get<Product[]>(this.servicesUtil.servicesUrl+"products.json").pipe(
             map(result =>{
                 const products: Product[] = [];
                 for (const key in result) {
@@ -38,7 +38,7 @@ export class ProductService{
     }
 
     getProductById(id: string): Observable<Product>{
-        return this.http.get<Product>(this.servicesUtil.productServicesUrl+"products/"+id+".json").pipe(
+        return this.http.get<Product>(this.servicesUtil.servicesUrl+"products/"+id+".json").pipe(
             delay(1000)
         );
     }
@@ -50,7 +50,7 @@ export class ProductService{
             tap(user =>console.log(user)
             ),
             exhaustMap(user =>{
-                return this.http.post<Product>(this.servicesUtil.productServicesUrl+"products.json?auth=" + user?.token,product)
+                return this.http.post<Product>(this.servicesUtil.servicesUrl+"products.json?auth=" + user?.token,product)
             })
         )
     }

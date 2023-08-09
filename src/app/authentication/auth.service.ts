@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthResponse } from '../models/auth-response';
+import { AuthResponse } from './auth-response.model';
 import { BehaviorSubject, Observable, Subject, catchError, tap, throwError } from 'rxjs';
-import { User } from '../models/user';
-import { ServicesUtil } from './services.util';
+import { User } from './user.model';
+import { ServicesUtil } from '../util/services.util';
 
 
 
@@ -77,7 +77,7 @@ export class AuthService {
           break;
       
         case "EMAIL_NOT_FOUND":
-          message = "Kulanıcı bulunamadı";
+          message = "Kullanıcı bulunamadı";
           break;
 
         case "EMAIL_EXISTS":

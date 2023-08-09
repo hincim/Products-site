@@ -18,9 +18,12 @@
         <button type="submit" class="btn btn-info" [disabled]="form.invalid">{{isLoginMode ? "Login":"Create Account"}}</button>
         <button type="button" class="btn btn-outline-primary" (click)="toggleMode()">{{isLoginMode?"I do not have an account":"I have an account"}}</button>
     </div>
+</form>
 
-    <div *ngIf="loading" class="spinner-border text-primary" role="status">
+<div class="d-flex justify-content-center">
+    
+    <div *ngIf="loading" class="spinner-border text-info mt-5" role="status">
         <span class="visually-hidden"></span>
     </div>
 
-</form>
+</div>

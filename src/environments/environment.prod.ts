@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  adminEmail: "hakan2@gmail.com",
 };

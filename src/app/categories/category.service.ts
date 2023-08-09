@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, map } from "rxjs";
-import { Category } from "../models/category";
-import { ServicesUtil } from "./services.util";
+import { ServicesUtil } from "../util/services.util";
+import { Category } from "./category.model";
 
 
 @Injectable()
@@ -15,7 +15,7 @@ export class CategoryService{
     }
 
     getCategories(): Observable<Category[]>{
-        return this.http.get<Category[]>(this.servicesUtil.categoryServicesUrl +"categories.json")
+        return this.http.get<Category[]>(this.servicesUtil.servicesUrl +"categories.json")
         .pipe(
             map(result =>{
                 const categories: Category[] = [];
@@ -28,7 +28,7 @@ export class CategoryService{
     }
 
     createCategory(category: Category): Observable<Category>{
-        return this.http.post<Category>(this.servicesUtil.categoryServicesUrl+"categories.json",category);
+        return this.http.post<Category>(this.servicesUtil.servicesUrl+"categories.json",category);
     }
 
 }
