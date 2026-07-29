@@ -1,27 +1,88 @@
-# IlkApp
+# Products Site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
+Angular 14 single-page storefront application with product browsing, category filtering, account authentication, and admin-restricted create flows.
 
-## Development server
+## Tech stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 14
+- TypeScript
+- RxJS
+- Bootstrap 5
+- CKEditor 4 (`ckeditor4-angular`)
+- Firebase Hosting configuration (`firebase.json`)
 
-## Code scaffolding
+## Implemented functionality
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Product listing view
+- Product detail view
+- Category sidebar and category-based filtering
+- Account registration/login/logout flow
+- Admin guard (`AdminGuard`) for protected routes
+- Admin-only product creation form (with rich-text description)
+- Admin-only category creation form
 
-## Build
+## Routing overview
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- `/home` — home page
+- `/products` — product list
+- `/products/category/:categoryId` — category-filtered products
+- `/products/:productId` — product detail
+- `/products/create` — product creation (admin only)
+- `/categories/create` — category creation (admin only)
+- `/account` — authentication page
 
-## Running unit tests
+## Project structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```text
+src/app
+├── authentication/   # auth component, service, guard, models
+├── categories/       # category list/create components and service
+├── products/         # product list/detail/create components and service
+├── shared/           # navbar, home, not-found components
+└── models/           # repository model classes
+```
 
-## Running end-to-end tests
+## Getting started
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Prerequisites
 
-## Further help
+- Node.js and npm
+- Angular CLI 14.x
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run locally
+
+```bash
+npm start
+```
+
+Default dev URL: `http://localhost:4200/`.
+
+## Available scripts
+
+- `npm start` — run development server
+- `npm run build` — create production build
+- `npm run watch` — build in watch mode (development configuration)
+- `npm test` — run Karma unit tests
+
+## Configuration notes
+
+- Admin access is controlled by `adminEmail` in:
+  - `src/environments/environment.ts`
+  - `src/environments/environment.prod.ts`
+- Data and auth services depend on a `ServicesUtil` class referenced at:
+  - `src/app/authentication/auth.service.ts`
+  - `src/app/products/product.service.ts`
+  - `src/app/categories/category.service.ts`
+
+If `src/app/util/services.util.ts` is not present in your local checkout, add it with the required API base URLs and auth key expected by those services.
+
+## Build and deployment
+
+- Build output path: `dist/ilk-app`
+- Firebase Hosting is configured to serve `dist/ilk-app` and rewrite all routes to `index.html` for SPA routing.
