@@ -1,27 +1,111 @@
-# IlkApp
+# Products Site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
+Products Site, Angular 14 ile geliştirilmiş tek sayfa (SPA) bir e-ticaret uygulamasıdır. Uygulama; ürün listeleme, kategori filtreleme, kullanıcı kimlik doğrulama ve yönetici yetkisine sahip kullanıcılar için ürün ve kategori yönetimi özelliklerini sunmaktadır.
 
-## Development server
+## Özellikler
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Ürün listeleme
+* Ürün detay sayfası
+* Kategoriye göre filtreleme
+* Kullanıcı kayıt ve giriş sistemi
+* Çıkış yapma
+* Admin yetkilendirmesi (Route Guard)
+* Yönetici kullanıcılar için ürün ekleme
+* Yönetici kullanıcılar için kategori ekleme
+* CKEditor ile zengin metin düzenleme
 
-## Code scaffolding
+## Kullanılan Teknolojiler
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Angular 14
+* TypeScript
+* RxJS
+* Bootstrap 5
+* CKEditor 4
+* Firebase Hosting
 
-## Build
+## Proje Yapısı
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```text
+src/app/
+├── authentication/
+├── categories/
+├── products/
+├── shared/
+└── models/
+```
 
-## Running unit tests
+## Kurulum
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Gereksinimler
 
-## Running end-to-end tests
+* Node.js
+* npm
+* Angular CLI 14
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Adımlar
 
-## Further help
+1. Repoyu klonlayın.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+git clone https://github.com/kullaniciadi/Products-Site.git
+```
+
+2. Proje dizinine geçin.
+
+```bash
+cd Products-Site
+```
+
+3. Gerekli paketleri yükleyin.
+
+```bash
+npm install
+```
+
+4. Geliştirme sunucusunu başlatın.
+
+```bash
+npm start
+```
+
+veya
+
+```bash
+ng serve
+```
+
+Uygulama varsayılan olarak aşağıdaki adreste çalışacaktır:
+
+```text
+http://localhost:4200
+```
+
+## Kullanılabilir Komutlar
+
+```bash
+npm start
+npm run build
+npm run watch
+npm test
+```
+
+## Sayfa Yapısı
+
+* `/home` — Ana sayfa
+* `/products` — Ürün listesi
+* `/products/category/:categoryId` — Kategoriye göre ürünler
+* `/products/:productId` — Ürün detay sayfası
+* `/products/create` — Ürün ekleme (Admin)
+* `/categories/create` — Kategori ekleme (Admin)
+* `/account` — Giriş ve kayıt sayfası
+
+## Notlar
+
+* Yönetici yetkilendirmesi `AdminGuard` ile sağlanmaktadır.
+* Ürün ve kategori ekleme sayfalarına yalnızca yönetici kullanıcılar erişebilir.
+* Firebase Hosting yapılandırması projeye dahildir.
+* Uygulama tek sayfa (SPA) mimarisi kullanmaktadır.
+
+## Geliştirici
+
+**hincim**
