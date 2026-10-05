@@ -14,6 +14,41 @@ Products Site, Angular 14 ile geliştirilmiş tek sayfa (SPA) bir e-ticaret uygu
 * Yönetici kullanıcılar için kategori ekleme
 * CKEditor ile zengin metin düzenleme
 
+## Ekran Görüntüleri
+
+> Ekran görüntüleri örnek ürün ve kategori verileriyle alınmıştır.
+
+### Ürün Listesi
+
+![Ürün listesi](docs/screenshots/products.png)
+
+<table>
+  <tr>
+    <td width="50%">
+      <b>Kategoriye Göre Filtreleme</b><br>
+      <img src="docs/screenshots/products-by-category.png" alt="Kategoriye göre filtrelenmiş ürünler">
+    </td>
+    <td width="50%">
+      <b>Ürün Detayı</b><br>
+      <img src="docs/screenshots/product-detail.png" alt="Ürün detay sayfası">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <b>Giriş / Kayıt</b><br>
+      <img src="docs/screenshots/account.png" alt="Hesap oluşturma ve giriş sayfası">
+    </td>
+    <td width="50%">
+      <b>Kategori Ekleme (Admin)</b><br>
+      <img src="docs/screenshots/category-create.png" alt="Kategori ekleme sayfası">
+    </td>
+  </tr>
+</table>
+
+### Ürün Ekleme (Admin)
+
+![Ürün ekleme sayfası](docs/screenshots/product-create.png)
+
 ## Kullanılan Teknolojiler
 
 * Angular 14
